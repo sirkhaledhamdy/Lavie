@@ -182,7 +182,7 @@ class LoginScreen extends StatelessWidget {
                     Align(
                       alignment: AlignmentDirectional.bottomStart,
                       child: Visibility(
-                        visible: MediaQuery.of(context).viewInsets.bottom == 0,
+                        visible: MediaQuery.of(context).viewInsets.bottom == 0, //make the planet disapear when keyboard open.
                         child: Container(
                           height: 120.rSp,
                           width: 120.rSp,
