@@ -1,10 +1,10 @@
 # la_vie
 
-Bloc
-Rest Api
-Qr scanner
-social section
-profile
-drawer
+- Bloc
+- Rest Api
+- Qr scanner
+- social section
+- profile
+- drawer
 
-https://youtu.be/G-MXilh7sUo
+https://youtu.be/oKNxhQh7i24
