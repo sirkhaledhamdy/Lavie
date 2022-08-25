@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:la_vie/models/forum_model.dart';
 import 'package:la_vie/models/mypost_model.dart';
 import 'package:la_vie/screens/fourms_screen/add_post_screen/add_post_screen.dart';
+import 'package:la_vie/screens/home_screen/home_screen.dart';
+import 'package:la_vie/screens/layout_screen.dart';
 import 'package:la_vie/shared/components/components.dart';
 import 'package:la_vie/shared/cubit/states.dart';
 import 'package:la_vie/utils/size_extention.dart';
@@ -53,6 +55,11 @@ fetchData()async{
             ),
             ),
             appBar: AppBar(
+              leading: InkWell(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LayOutScreen()));
+                  },
+                  child: Icon(Icons.keyboard_backspace,),),
               elevation: 0,
               centerTitle: true,
               iconTheme: const IconThemeData(

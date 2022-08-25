@@ -16,13 +16,38 @@ class AddPostScreen extends StatefulWidget {
 
 class _AddPostScreenState extends State<AddPostScreen> {
 
+
   var titleController = TextEditingController();
   var descriptionController = TextEditingController();
+
+  static showBlackSuccessSnackBar(BuildContext context, {String? title}) {
+    return ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        elevation: 0,
+        duration: const Duration(seconds: 3,),
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.symmetric(horizontal: 25.rw, vertical: 30.rh),
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.rSp)),
+        backgroundColor: Colors.red.withOpacity(0.7),
+        content: Text(
+          title ?? 'User Must Add All Information',
+        ),
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<AppCubit , AppStates>(
-      listener: (context , index){},
-      builder: (context , index){
+      listener: (context , state){
+        if(state is AddPostSuccessState){
+          navigateAndFinish(context, const ForumsScreen());
+        }else if (state is AddPostErrorState){
+
+          showBlackSuccessSnackBar(context);
+        }
+      },
+      builder: (context , state){
         var cubit = AppCubit.get(context);
         return Scaffold(
           backgroundColor: Colors.white,
@@ -170,14 +195,14 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         height: 54.rh,
                         child: TextButton(
 
-                          onPressed: (){
-                            cubit.createPost(
+                          onPressed: () async{
+                          await  cubit.createPost(
                                 title: titleController.text,
                                 description: descriptionController.text,
                               postImage: 'data:image/jpeg;base64,${AppCubit.get(context).postImage}',
 
                                 );
-                            navigateAndFinish(context, const ForumsScreen());
+
 
                           },
                           style: ButtonStyle(

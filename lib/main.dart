@@ -21,7 +21,7 @@ void main() {
       Widget widget;
       accessToken = CacheHelper.getData(
         key: 'accessToken',
-      )?? accessToken;
+      )?? '';
 
       // First Page check.
       if (accessToken != '') {
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => AppCubit()..getUserData()..getProducts()..getSeeds()..getPlanets()..getTools(),
+        BlocProvider(create: (context) => AppCubit(),
         ),
       ],
       child: BlocConsumer<AppCubit, AppStates>(

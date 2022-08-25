@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:la_vie/screens/layout_screen.dart';
 import 'package:la_vie/shared/components/components.dart';
+import 'package:la_vie/shared/components/constants.dart';
 import 'package:la_vie/shared/cubit/login_cubit.dart';
 import 'package:la_vie/shared/cubit/login_states.dart';
 import 'package:la_vie/shared/network/local/cach_helper.dart';
@@ -143,6 +144,8 @@ class LoginScreen extends StatelessWidget {
           if(state is LoginSuccessState){
             if(state.loginModel.type == 'Success'){
               CacheHelper.saveData(key: 'accessToken', value: state.loginModel.data!.accessToken).then((value) {
+                accessToken = CacheHelper.getData(key: "accessToken");
+
                 navigateAndFinish(context, LayOutScreen());
                 // Make it show only if he didn't claim his seed after every login.
 
@@ -159,6 +162,7 @@ class LoginScreen extends StatelessWidget {
           }else if (state is RegisterSuccessState){
             if(state.signUpModel.type == 'Success'){
               CacheHelper.saveData(key: 'accessToken', value: state.signUpModel.data!.accessToken).then((value) {
+                accessToken = CacheHelper.getData(key: "accessToken");
                 navigateAndFinish(context, LayOutScreen());
                 // Make it show only if he didn't claim his seed after every login.
 

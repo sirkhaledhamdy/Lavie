@@ -7,8 +7,6 @@ import 'package:la_vie/shared/cubit/states.dart';
 import 'package:la_vie/utils/size_extention.dart';
 
 class LayOutScreen extends StatefulWidget {
-  const LayOutScreen({Key? key}) : super(key: key);
-
 
 
   @override
@@ -16,11 +14,18 @@ class LayOutScreen extends StatefulWidget {
 }
 
 class _LayOutScreenState extends State<LayOutScreen> {
+  fetchData()async{
+    await AppCubit.get(context).getUserData();
+    await AppCubit.get(context).getProducts();
+    await   AppCubit.get(context).getPlanets();
+    await  AppCubit.get(context).getSeeds();
+    await  AppCubit.get(context).getTools();
+  }
   @override
-  // void initState() {
-  //   AppCubit.get(context).getUserData();
-  //   super.initState();
-  // }
+  void initState() {
+   fetchData();
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;

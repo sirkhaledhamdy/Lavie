@@ -12,12 +12,6 @@ class LeaveScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.keyboard_backspace),
-          onPressed: (){
-            navigateAndFinish(context, LayOutScreen());
-          },
-        ),
         backgroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,

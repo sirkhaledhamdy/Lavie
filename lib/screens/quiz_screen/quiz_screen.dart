@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:la_vie/screens/layout_screen.dart';
 import 'package:la_vie/screens/quiz_screen/questions.dart';
+import 'package:la_vie/shared/components/components.dart';
 import 'package:la_vie/shared/components/styles/colors.dart';
 import 'package:la_vie/utils/size_extention.dart';
 
@@ -159,6 +161,8 @@ class _QuizScreenState extends State<QuizScreen> {
           setState(() {
             questionNumber++;
           });
+        }else{
+          navigateAndFinish(context, LayOutScreen());
         }
       }, child: Text(
       questionNumber <questions.length ? 'Next': 'See the result',

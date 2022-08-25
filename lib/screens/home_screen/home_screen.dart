@@ -67,16 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
       builder: (context, state) {
         var myCubit = AppCubit.get(context);
 
-        return (state is ProfileLoadingState ||
-                state is ProductSuccessHomeState)
-            ? const Scaffold(
-                backgroundColor: Colors.white,
-                body: Center(
-                  child: CircularProgressIndicator(),
-                ),
-              )
-            : Scaffold(
-                drawer: Container(
+        return  Scaffold(
+                drawer:myCubit.profileModel == null ?const Center(child: CircularProgressIndicator()) : Container(
                   width: MediaQuery.of(context).size.width *
                       0.66, // 66% of screen will be occupied
                   color: Colors.grey,
@@ -236,7 +228,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Visibility(
-                        visible: (day == 'Wednesday') ? true : false,
+                        visible: (day == 'Thursday') ? true : false,
                         child: AvatarGlow(
                           endRadius: 45.rSp,
                           glowColor: Colors.green.shade300,
@@ -453,7 +445,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Column(
                                                 children: [
                                                   Expanded(
-                                                    child: GridView.count(
+                                                    child:myCubit.planetModel == null ? const Center(child: CircularProgressIndicator()) : GridView.count(
                                                       crossAxisCount: 2,
                                                       mainAxisSpacing: 1,
                                                       crossAxisSpacing: 1,
@@ -479,7 +471,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Column(
                                                 children: [
                                                   Expanded(
-                                                    child: GridView.count(
+                                                    child:myCubit.seedModel == null ? Center(child: CircularProgressIndicator(),) : GridView.count(
                                                       crossAxisCount: 2,
                                                       mainAxisSpacing: 1,
                                                       crossAxisSpacing: 1,
@@ -505,7 +497,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                               child: Column(
                                                 children: [
                                                   Expanded(
-                                                    child: GridView.count(
+                                                    child:myCubit.toolsModel == null  ? Center(child: CircularProgressIndicator(),) : GridView.count(
                                                       crossAxisCount: 2,
                                                       mainAxisSpacing: 1,
                                                       crossAxisSpacing: 1,

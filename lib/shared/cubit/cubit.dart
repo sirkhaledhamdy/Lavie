@@ -249,8 +249,8 @@ class AppCubit extends Cubit<AppStates> {
     }).catchError((error){
       print(error.toString());
       if(error is DioError) {
-        print(error.toString());
-        emit(ForumErrorState());
+        print(error.message.toString());
+        emit(AddPostErrorState(error.message));
       }
     });
 

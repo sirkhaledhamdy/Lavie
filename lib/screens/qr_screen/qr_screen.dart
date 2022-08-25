@@ -23,7 +23,7 @@ showSnackBar(String text){
     behavior: SnackBarBehavior.floating,
     margin: EdgeInsets.all(20.rSp),
     backgroundColor: Colors.white.withOpacity(0.53),
-    duration: const Duration(minutes: 1,),
+    duration: const Duration(seconds: 10,),
     content:  SizedBox(
       width: 341.rSp,
       height: 75.rSp,
@@ -31,7 +31,6 @@ showSnackBar(String text){
             onTap: (){
               if(mounted){
                 ScaffoldMessenger.of(context).hideCurrentSnackBar();
-
               }
             },
             child: Text(text,
@@ -41,7 +40,7 @@ showSnackBar(String text){
         )),),
   );
 }
-
+// ref https://pub.dev/packages/mobile_scanner.
   @override
   Widget build(BuildContext context) {
     return Scaffold(

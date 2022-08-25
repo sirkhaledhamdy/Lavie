@@ -24,7 +24,16 @@ class DioHelper {
         String? accessToken,
         String? refreshToken,
       }) async{
-    dio?.options.headers["Authorization"] = "Bearer $accessToken";
+    print(">>>>>>>>>>>>>>>>>>>>>>> accessToken $accessToken");
+    dio?.options.headers =
+    {
+      'Content-Type':'application/json',
+      'Accept':'application/json',
+      'Authorization':'Bearer $accessToken',
+      'refreshToken':refreshToken,
+    };
+
+    // ["Authorization"] = "Bearer $accessToken";
     return await dio?.get(
       url,
       queryParameters: query,
