@@ -23,8 +23,8 @@ showSnackBar(String text){
     behavior: SnackBarBehavior.floating,
     margin: EdgeInsets.all(20.rSp),
     backgroundColor: Colors.white.withOpacity(0.53),
-    duration: Duration(minutes: 1,),
-    content:  Container(
+    duration: const Duration(minutes: 1,),
+    content:  SizedBox(
       width: 341.rSp,
       height: 75.rSp,
         child: InkWell(
@@ -34,8 +34,8 @@ showSnackBar(String text){
 
               }
             },
-            child: Text('$text',
-        style: TextStyle(
+            child: Text(text,
+        style: const TextStyle(
           color: Colors.black,
         ),
         )),),

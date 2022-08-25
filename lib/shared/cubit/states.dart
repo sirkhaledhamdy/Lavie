@@ -91,3 +91,12 @@ class PostImageSuccessState extends AppStates{}
 
 class PostImageErrorState extends AppStates{
 }
+
+
+class MyForumLoadingState extends AppStates{}
+
+class MyForumSuccessState extends AppStates{}
+
+class MyForumErrorState extends AppStates{
+
+}

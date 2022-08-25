@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:la_vie/screens/profile_screen/profile_screen.dart';
-import 'package:la_vie/shared/components/components.dart';
 import 'package:la_vie/shared/components/styles/colors.dart';
 import 'package:la_vie/shared/cubit/cubit.dart';
 import 'package:la_vie/shared/cubit/states.dart';
 import 'package:la_vie/utils/size_extention.dart';
 
 class UpdateProfileScreen extends StatefulWidget {
-   UpdateProfileScreen({Key? key}) : super(key: key);
+   const UpdateProfileScreen({Key? key}) : super(key: key);
 
   @override
   State<UpdateProfileScreen> createState() => _UpdateProfileScreenState();
@@ -39,7 +37,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
           appBar: AppBar(
             backgroundColor: Colors.white,
             elevation: 0,
-            title: Text('Update Profile',
+            title: const Text('Update Profile',
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 20,
@@ -47,7 +45,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
 
               ),
             ),
-            iconTheme: IconThemeData(
+            iconTheme: const IconThemeData(
               color: Colors.black,
             ),
           ),
@@ -58,8 +56,8 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  (state is ProfileUpdateLoadingState)? Padding(
-                    padding: const EdgeInsets.all(20.0),
+                  (state is ProfileUpdateLoadingState)? const Padding(
+                    padding: EdgeInsets.all(20.0),
                     child: LinearProgressIndicator(),
                   ): SizedBox(height: 5.rh,),
                   Row(
@@ -132,7 +130,7 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
                     );
                   },
 
-                    child: Text('Update Your Profile'),),
+                    child: const Text('Update Your Profile'),),
                 ],
               ),
             ),

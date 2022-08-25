@@ -13,7 +13,7 @@ class LeaveScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(Icons.keyboard_backspace),
+          icon: const Icon(Icons.keyboard_backspace),
           onPressed: (){
             navigateAndFinish(context, LayOutScreen());
           },
@@ -21,10 +21,10 @@ class LeaveScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         centerTitle: true,
         elevation: 0,
-        iconTheme: IconThemeData(
+        iconTheme: const IconThemeData(
           color: Colors.black
         ),
-        title: Text('Blogs',
+        title: const Text('Blogs',
         style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
@@ -46,7 +46,7 @@ class LeaveScreen extends StatelessWidget {
         borderRadius: BorderRadius.circular(15),
         boxShadow: [
           BoxShadow(
-            offset: Offset(10,4),
+            offset: const Offset(10,4),
             color: Colors.grey.shade200,
             blurRadius: 10,
             spreadRadius: 5,
@@ -85,7 +85,7 @@ class LeaveScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 20.rh,),
-              Text(
+              const Text(
                 '5 Tips to treat plants',
                 style: TextStyle(
                   fontFamily: 'Roboto',
@@ -101,7 +101,7 @@ class LeaveScreen extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
-                  color: Color(0xff7D7B7B).withOpacity(0.78,),
+                  color: const Color(0xff7D7B7B).withOpacity(0.78,),
                 ),
               ),
               SizedBox(

@@ -9,6 +9,8 @@ import 'package:la_vie/shared/cubit/states.dart';
 import 'package:la_vie/utils/size_extention.dart';
 
 class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
+
 
 
   @override
@@ -24,7 +26,7 @@ class ProfileScreen extends StatelessWidget {
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.keyboard_backspace,
               ),
               onPressed: () {
@@ -34,41 +36,41 @@ class ProfileScreen extends StatelessWidget {
             actions: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.more_horiz),
+                icon: const Icon(Icons.more_horiz),
               ),
             ],
           ),
           body: Stack(
             children: [
               Container(
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                    image: new AssetImage(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(
                       'assets/images/profile_blur.png',
                     ),
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: new BackdropFilter(
-                  filter: new ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-                  child: new Container(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                  child: Container(
                     decoration:
-                    new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                    BoxDecoration(color: Colors.white.withOpacity(0.0)),
                   ),
                 ),
               ),
               Container(
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                    image: new ExactAssetImage('assets/images/dark.png'),
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: ExactAssetImage('assets/images/dark.png'),
                     fit: BoxFit.cover,
                   ),
                 ),
-                child: new BackdropFilter(
-                  filter: new ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
-                  child: new Container(
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: 2.0, sigmaY: 2.0),
+                  child: Container(
                     decoration:
-                    new BoxDecoration(color: Colors.white.withOpacity(0.0)),
+                    BoxDecoration(color: Colors.white.withOpacity(0.0)),
                   ),
                 ),
               ),
@@ -89,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
                       ),
                       Text(
                         '${cubit.data.firstName} ${cubit.data.lastName}',
-                        style: TextStyle(
+                        style: const TextStyle(
                             letterSpacing: -0.36,
                             fontSize: 24,
                             fontWeight: FontWeight.w700,
@@ -115,7 +117,7 @@ class ProfileScreen extends StatelessWidget {
                                   width: 378.rw,
                                   height: 80.rh,
                                   decoration: BoxDecoration(
-                                    color: Color(0xffF3FEF1),
+                                    color: const Color(0xffF3FEF1),
                                     borderRadius: BorderRadius.circular(10),
                                   ),
                                   child: Padding(
@@ -132,7 +134,7 @@ class ProfileScreen extends StatelessWidget {
                                         ),
                                         Text(
                                           'You have ${cubit.data.userPoints} Points',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w500,
                                           ),
@@ -144,7 +146,7 @@ class ProfileScreen extends StatelessWidget {
                                 SizedBox(
                                   height: 24.rh,
                                 ),
-                                Text(
+                                const Text(
                                   'Edit Profile',
                                   style: TextStyle(
                                     fontWeight: FontWeight.w500,
@@ -171,10 +173,10 @@ class ProfileScreen extends StatelessWidget {
                                       ),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: Color(0xff6C6C6C).withOpacity(0.2),
+                                          color: const Color(0xff6C6C6C).withOpacity(0.2),
                                           blurRadius: 1,
                                           spreadRadius: 0,
-                                          offset: Offset(0, 3),
+                                          offset: const Offset(0, 3),
                                         ),
                                       ],
                                     ),
@@ -190,7 +192,7 @@ class ProfileScreen extends StatelessWidget {
                                           SizedBox(
                                             width: 10.rw,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Change Name',
                                             style: TextStyle(
                                               fontSize: 18,
@@ -222,9 +224,9 @@ class ProfileScreen extends StatelessWidget {
                                       ),
                                       boxShadow: <BoxShadow>[
                                         BoxShadow(
-                                          color: Color(0xff6C6C6C).withOpacity(0.1),
+                                          color: const Color(0xff6C6C6C).withOpacity(0.1),
                                           blurRadius: 20,
-                                          offset: Offset(0, 2),
+                                          offset: const Offset(0, 2),
                                         ),
                                       ],
                                     ),
@@ -240,7 +242,7 @@ class ProfileScreen extends StatelessWidget {
                                           SizedBox(
                                             width: 10.rw,
                                           ),
-                                          Text(
+                                          const Text(
                                             'Change Email',
                                             style: TextStyle(
                                               fontSize: 18,

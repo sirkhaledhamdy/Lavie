@@ -15,18 +15,18 @@ class NotficationScreen extends StatelessWidget {
     backgroundColor: Colors.white,
     appBar: AppBar(
       backgroundColor: Colors.white,
-    title: Text('Notification',
+    title: const Text('Notification',
     style: TextStyle(
       color: Colors.black,
       fontWeight: FontWeight.w500,
     ),
     ),
     elevation: 0,
-    leading: SizedBox(),//any one below or SizeBox()
+    leading: const SizedBox(),//any one below or SizeBox()
     automaticallyImplyLeading: false,//any one below or SizeBox()
     ),
       body: ListView.separated(itemBuilder: (context , index) => buildNotificationItem(),
-          separatorBuilder: (context , index) => Container(width: double.infinity, height: 1, color: Color(0xffE8EBF0),), itemCount: 10),
+          separatorBuilder: (context , index) => Container(width: double.infinity, height: 1, color: const Color(0xffE8EBF0),), itemCount: 10),
     ),
     );
   }
@@ -38,7 +38,7 @@ Widget buildNotificationItem() => Padding(
     children: [
       Row(
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             radius: 24,
             backgroundImage: NetworkImage('https://img.freepik.com/premium-photo/young-handsome-man-with-beard-isolated-keeping-arms-crossed-frontal-position_1368-132662.jpg?w=360',),
           ),
@@ -46,7 +46,7 @@ Widget buildNotificationItem() => Padding(
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Joy Arnold left 6 comments on Your Post',
+              const Text('Joy Arnold left 6 comments on Your Post',
                 style: TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w500,
@@ -54,7 +54,7 @@ Widget buildNotificationItem() => Padding(
                 ),
               ),
               SizedBox(height: 4.rh,),
-              Text('Yesterday at 11:42 PM',
+              const Text('Yesterday at 11:42 PM',
                 style: TextStyle(
                   color: Color(0xffA5ACB8),
                 ),

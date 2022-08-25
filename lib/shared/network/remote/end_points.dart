@@ -7,4 +7,5 @@ const TOOLS = '/api/v1/tools';
 const PROFILE = '/api/v1/user/me';
 const UPDATE = '/api/v1/user/me';
 const FORUMS = '/api/v1/forums';
+const MYFORUMS = '/api/v1/forums/me';
 

@@ -7,6 +7,8 @@ enum SingingCharacter { ans1, ans2,ans3 }
 class OptionsWidget extends StatefulWidget {
   int groupVal=0;
 
+  OptionsWidget({Key? key}) : super(key: key);
+
 
   @override
   State<OptionsWidget> createState() => _OptionsWidgetState();

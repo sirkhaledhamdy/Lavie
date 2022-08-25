@@ -6,6 +6,8 @@ import 'package:la_vie/utils/size_extention.dart';
 import 'options.dart';
 
 class QuizScreen extends StatefulWidget {
+  const QuizScreen({Key? key}) : super(key: key);
+
   @override
   State<QuizScreen> createState() => _QuizScreenState();
 }
@@ -41,7 +43,7 @@ class _QuizScreenState extends State<QuizScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: Text('Course Exam',
+        title: const Text('Course Exam',
         style: TextStyle(
           fontFamily: 'Roboto',
           fontWeight: FontWeight.w500,
@@ -53,7 +55,7 @@ class _QuizScreenState extends State<QuizScreen> {
       body: PageView.builder(
         controller: controller,
         itemCount: 10,
-        physics: NeverScrollableScrollPhysics(),
+        physics: const NeverScrollableScrollPhysics(),
         itemBuilder: (context , index) => Padding(
           padding: const EdgeInsets.all(31.0),
           child: Column(
@@ -62,7 +64,7 @@ class _QuizScreenState extends State<QuizScreen> {
               RichText(
                 text: TextSpan(
                   text: 'Question ' ,
-                  style: TextStyle(color: Colors.black,
+                  style: const TextStyle(color: Colors.black,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w500,
                     fontSize: 36,
@@ -100,7 +102,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     final _questions = questions[index];
                     return buildQuestions(_questions );
                     },
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
 
                 ),
               ),
@@ -108,7 +110,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 child:buildElevautedButton(),
                 alignment: Alignment.bottomRight,
               ),
-              SizedBox(height: 20,),
+              const SizedBox(height: 20,),
 
             ],
           ),
@@ -123,7 +125,7 @@ class _QuizScreenState extends State<QuizScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(question.text,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'Roboto',
             fontWeight: FontWeight.w600,
             fontSize: 20,
@@ -150,7 +152,7 @@ class _QuizScreenState extends State<QuizScreen> {
         onPressed: (){
         if(questionNumber < questions.length){
           controller.nextPage(
-            duration : Duration(milliseconds: 250,),
+            duration : const Duration(milliseconds: 250,),
             curve: Curves.easeInExpo,
 
           );

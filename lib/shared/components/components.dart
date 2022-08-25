@@ -27,7 +27,7 @@ Widget defaultFormField ({
           suffix
       ),
     ) : null ,
-    border: OutlineInputBorder(),
+    border: const OutlineInputBorder(),
   ),
 
   controller: controller,

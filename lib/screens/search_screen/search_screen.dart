@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:la_vie/models/home_model.dart';
 import 'package:la_vie/shared/cubit/cubit.dart';
@@ -5,6 +6,8 @@ import 'package:la_vie/utils/size_extention.dart';
 import '../../shared/components/styles/colors.dart';
 
 class SearchScreen extends StatefulWidget {
+  const SearchScreen({Key? key}) : super(key: key);
+
   @override
   State<SearchScreen> createState() => _SearchScreenState();
 }
@@ -33,7 +36,7 @@ class _SearchScreenState extends State<SearchScreen> {
       children: [
         Row(
           children: [
-            Text(
+            const Text(
               'Results for ',
               style: TextStyle(
                   fontWeight: FontWeight.w700,
@@ -48,7 +51,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 fontSize: 18,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Text(
               ' 0 found',
               style: TextStyle(
@@ -73,7 +76,7 @@ class _SearchScreenState extends State<SearchScreen> {
         SizedBox(
           height: 40.rh,
         ),
-        Text(
+        const Text(
           'Not Found',
           style: TextStyle(
             fontFamily: 'Roboto',
@@ -89,7 +92,7 @@ class _SearchScreenState extends State<SearchScreen> {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontFamily: 'Roboto',
-            color: Color(0xff212121).withOpacity(0.61),
+            color: const Color(0xff212121).withOpacity(0.61),
             fontSize: 16,
           ),
         ),
@@ -175,7 +178,9 @@ class _SearchScreenState extends State<SearchScreen> {
                             final planets = planet[index];
                             return InkWell(
                               onTap: () {
-                                print("${planet[index].name} ${planet[index].productId!}");
+                                if (kDebugMode) {
+                                  print("${planet[index].name} ${planet[index].productId!}");
+                                }
                                 AppCubit.get(context).getOneProduct(
                                   planet[index].productId,
                                 );

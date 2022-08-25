@@ -20,6 +20,8 @@ class LoginScreen extends StatelessWidget {
   var firstNameController = TextEditingController();
   var lastNameController = TextEditingController();
 
+  LoginScreen({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +49,8 @@ class LoginScreen extends StatelessWidget {
                 children:  <Widget>[
                   CachedNetworkImage(
                     imageUrl: 'https://s3-alpha-sig.figma.com/img/9e88/3e0e/c07afa070cfe7739abb3e254b0b32705?Expires=1661731200&Signature=VZw5FA9t1LvcM3LfRU-OcumK7IQ-5dHuMEnoB1bF9paZ3dVx9R4Tl9DqtT8~2i9f~TxlBqtxQRSi7T4Oj49CkHfeXOoaJVMPk7WldrRzBl6x45rCPgh-Pssr8HwGqXgJfkAjG2jRM3SqdEV8Rk0eRm8h9hzkzZqlCDvo2vNIxqbsuZ83UsVVECgEsUbN~T~q~QjHyaXKETEW5UCCienA-VGWI3Rtnx41U-lKVrILYR2wBJfKFcw3FvSa~bvHE-9JhYX6sPhfEK01ViIcVpZk8y8klD1YSuw1WacjTkPFUL8Ii1Goh1RIUuBpbEnrS4LovwyjwyRaVCeV~iPiLLbWCA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
-                    placeholder: (context, url) => Center(child: CircularProgressIndicator()),
-                    errorWidget: (context, url, error) => Icon(Icons.error),
+                    placeholder: (context, url) => const Center(child: CircularProgressIndicator()),
+                    errorWidget: (context, url, error) => const Icon(Icons.error),
                     fit: BoxFit.cover,
 
                   ),
@@ -58,18 +60,18 @@ class LoginScreen extends StatelessWidget {
                     height: 27.rSp,
                   ),
                   SizedBox(height: 10.rh,),
-                  Text('Get Seeds For Free',
+                  const Text('Get Seeds For Free',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
                     ),),
                   SizedBox(height: 15.rh,),
-                  Text('Enter Your Address',
+                  const Text('Enter Your Address',
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),),
-                  SizedBox(height: 20,),
+                  const SizedBox(height: 20,),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: TextField(
@@ -84,7 +86,7 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  const SizedBox(height: 10,),
                   Padding(
                     padding:  EdgeInsets.symmetric(horizontal: 16.0.rSp , vertical: 10.rSp),
                     child: Container(
@@ -96,7 +98,7 @@ class LoginScreen extends StatelessWidget {
                       child: MaterialButton(onPressed: (){
                         CacheHelper.putData(key: 'showMyDialog', value: true);
                         Navigator.pop(context);
-                      }, child: Text('Send',
+                      }, child: const Text('Send',
                         style:TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.w500,
@@ -110,13 +112,13 @@ class LoginScreen extends StatelessWidget {
                     padding:  EdgeInsets.symmetric(horizontal: 16.0.rSp , vertical: 10.rSp),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Color(0xffF0F0F0),
+                        color: const Color(0xffF0F0F0),
                         borderRadius: BorderRadius.circular(10),
                       ),
                       width: kIsWeb ? 400.0 : double.infinity,
                       child: MaterialButton(onPressed: (){
                         Navigator.pop(context);
-                      }, child: Text('Save For Later',
+                      }, child: const Text('Save For Later',
                         style: TextStyle(
                           color: Color(0xff979797),
                           fontWeight: FontWeight.w500,
@@ -187,7 +189,7 @@ class LoginScreen extends StatelessWidget {
                           height: 120.rSp,
                           width: 120.rSp,
                           color: Colors.white,
-                          child: Image(
+                          child: const Image(
                             image: AssetImage(
                               "assets/images/planet2.png",
                             ),
@@ -205,7 +207,7 @@ class LoginScreen extends StatelessWidget {
                               Align(
                                 alignment: AlignmentDirectional.topEnd,
                                 child: (Image(
-                                  image: AssetImage(
+                                  image: const AssetImage(
                                     "assets/images/planet1.png",
                                   ),
                                   width: 140.rSp,
@@ -215,7 +217,7 @@ class LoginScreen extends StatelessWidget {
                               Align(
                                 alignment: Alignment.bottomCenter,
                                 child: Image(
-                                  image: AssetImage('assets/images/img.png'),
+                                  image: const AssetImage('assets/images/img.png'),
                                   width: 102.rSp,
                                   height: 100.rSp,
                                 ),
@@ -230,10 +232,10 @@ class LoginScreen extends StatelessWidget {
                               children: [
                                 TabBar(
                                   labelColor: defaultColor,
-                                  unselectedLabelColor: Color(0xff8A8A8A),
+                                  unselectedLabelColor: const Color(0xff8A8A8A),
                                   indicatorColor: defaultColor,
                                   indicatorSize: TabBarIndicatorSize.label,
-                                  tabs: <Widget>[
+                                  tabs: const <Widget>[
                                     Tab(
                                       text: 'Sign up',
                                     ),
@@ -264,7 +266,7 @@ class LoginScreen extends StatelessWidget {
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: [
-                                                            Text(
+                                                            const Text(
                                                               'First Name',
                                                               style: TextStyle(
                                                                 fontSize: 14,
@@ -284,6 +286,7 @@ class LoginScreen extends StatelessWidget {
                                                                   if (value!.isEmpty) {
                                                                     return 'Type Your first name';
                                                                   }
+                                                                  return null;
                                                                 },
                                                                 keyboardType:
                                                                 TextInputType
@@ -308,7 +311,7 @@ class LoginScreen extends StatelessWidget {
                                                         child: Column(
                                                           crossAxisAlignment: CrossAxisAlignment.start,
                                                           children: [
-                                                            Text(
+                                                            const Text(
                                                               'Last Name',
                                                               style: TextStyle(
                                                                 fontSize: 14,
@@ -328,6 +331,7 @@ class LoginScreen extends StatelessWidget {
                                                                   if (value!.isEmpty) {
                                                                     return 'Type Your Email';
                                                                   }
+                                                                  return null;
                                                                 },
                                                                 keyboardType:
                                                                 TextInputType
@@ -352,7 +356,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 25.rh,
                                                   ),
-                                                  Text(
+                                                  const Text(
                                                     'Email',
                                                     style: TextStyle(
                                                       color: Color(0xff6F6F6F),
@@ -362,7 +366,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 5.rh,
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                     height: 46.rh,
                                                     child: TextFormField(
                                                       controller:
@@ -372,6 +376,7 @@ class LoginScreen extends StatelessWidget {
                                                         if (value!.isEmpty) {
                                                           return 'Type Your Email';
                                                         }
+                                                        return null;
                                                       },
                                                       keyboardType:
                                                       TextInputType
@@ -389,7 +394,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 25.rh,
                                                   ),
-                                                  Text(
+                                                  const Text(
                                                     'Password',
                                                     style: TextStyle(
                                                       color: Color(0xff6F6F6F),
@@ -399,7 +404,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 5.rw,
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                     height: 46.rh,
                                                     child: TextFormField(
                                                       obscureText: true,
@@ -456,7 +461,7 @@ class LoginScreen extends StatelessWidget {
                                                 },
                                                 color: defaultColor,
                                                 textColor: Colors.white,
-                                                child: Text(
+                                                child: const Text(
                                                   'Sign Up',
                                                 ),
                                               ),
@@ -469,13 +474,13 @@ class LoginScreen extends StatelessWidget {
                                                 Flexible(
                                                   child: Container(
                                                     height: 1,
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                   ),
                                                 ),
                                                 SizedBox(
                                                   width: 5.rw,
                                                 ),
-                                                Text(
+                                                const Text(
                                                   'or continue with',
                                                   style: TextStyle(
                                                     fontSize: 12,
@@ -488,7 +493,7 @@ class LoginScreen extends StatelessWidget {
                                                 Flexible(
                                                   child: Container(
                                                     height: 1,
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                   ),
                                                 ),
                                               ],
@@ -501,7 +506,7 @@ class LoginScreen extends StatelessWidget {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Image(
-                                                  image: AssetImage(
+                                                  image: const AssetImage(
                                                     "assets/images/google.png",
                                                   ),
                                                   width: 21.63.rSp,
@@ -512,7 +517,7 @@ class LoginScreen extends StatelessWidget {
                                                   width: 26.6.rw,
                                                 ),
                                                 Image(
-                                                  image: AssetImage(
+                                                  image: const AssetImage(
                                                     "assets/images/fb.png",
                                                   ),
                                                   width: 15.rSp,
@@ -536,7 +541,7 @@ class LoginScreen extends StatelessWidget {
                                               height: 25.h,
                                               child: ListView(
                                                 children: [
-                                                  Text(
+                                                  const Text(
                                                     'Email',
                                                     style: TextStyle(
                                                       fontSize: 14,
@@ -574,7 +579,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 25.rh,
                                                   ),
-                                                  Text(
+                                                  const Text(
                                                     'Password',
                                                     style: TextStyle(
                                                       color: Color(0xff6F6F6F),
@@ -584,7 +589,7 @@ class LoginScreen extends StatelessWidget {
                                                   SizedBox(
                                                     height: 5.rh,
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                     height: 46.rh,
                                                     child: TextFormField(
                                                       obscureText: true,
@@ -641,11 +646,11 @@ class LoginScreen extends StatelessWidget {
                                                       },
                                                       color: defaultColor,
                                                       textColor: Colors.white,
-                                                      child: Text(
+                                                      child: const Text(
                                                         'Login',
                                                       ),
                                                     )
-                                                  : Center(
+                                                  : const Center(
                                                       child:
                                                           CircularProgressIndicator(),
                                                     ),
@@ -658,13 +663,13 @@ class LoginScreen extends StatelessWidget {
                                                 Flexible(
                                                   child: Container(
                                                     height: 1,
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                   ),
                                                 ),
                                                 SizedBox(
                                                   width: 5.rw,
                                                 ),
-                                                Text(
+                                                const Text(
                                                   'or continue with',
                                                   style: TextStyle(
                                                     fontSize: 12,
@@ -677,7 +682,7 @@ class LoginScreen extends StatelessWidget {
                                                 Flexible(
                                                   child: Container(
                                                     height: 1,
-                                                    color: Color(0xff979797),
+                                                    color: const Color(0xff979797),
                                                   ),
                                                 ),
                                               ],
@@ -690,7 +695,7 @@ class LoginScreen extends StatelessWidget {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Image(
-                                                  image: AssetImage(
+                                                  image: const AssetImage(
                                                     "assets/images/google.png",
                                                   ),
                                                   width: 21.63.rSp,
@@ -701,7 +706,7 @@ class LoginScreen extends StatelessWidget {
                                                   width: 26.6.rw,
                                                 ),
                                                 Image(
-                                                  image: AssetImage(
+                                                  image: const AssetImage(
                                                     "assets/images/fb.png",
                                                   ),
                                                   width: 15.rSp,

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:la_vie/models/forum_model.dart';
 import 'package:la_vie/models/home_model.dart';
+import 'package:la_vie/models/mypost_model.dart';
 import 'package:la_vie/models/planets_model.dart';
 import 'package:la_vie/models/post_model.dart';
 import 'package:la_vie/models/profile_model.dart';
@@ -230,7 +231,7 @@ class AppCubit extends Cubit<AppStates> {
   createPost({
     required String? title,
     required String? description,
-    required String? postImage,
+     String? postImage,
 }) async {
     emit(AddPostLoadingState());
     await DioHelper.postData(
@@ -278,6 +279,26 @@ class AppCubit extends Cubit<AppStates> {
   }
 
 
+  MyPostModel? myPostModel;
+
+  getMyForums(int index) async {
+    emit(MyForumLoadingState());
+    await DioHelper.getData(
+      url: MYFORUMS,
+      accessToken: accessToken,
+    ).then((value) {
+      myPostModel = MyPostModel.fromJson(value!.data);
+      print(myPostModel!.data[index].userId);
+
+      emit(MyForumSuccessState());
+    }).catchError((error) {
+      print(error.toString());
+      if (error is DioError) {
+        print(error.toString());
+        emit(MyForumLoadingState());
+      }
+    });
+  }
 
 
 

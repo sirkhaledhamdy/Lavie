@@ -7,6 +7,8 @@ import 'package:la_vie/shared/cubit/states.dart';
 import 'package:la_vie/utils/size_extention.dart';
 
 class LayOutScreen extends StatefulWidget {
+  const LayOutScreen({Key? key}) : super(key: key);
+
 
 
   @override
@@ -28,11 +30,11 @@ class _LayOutScreenState extends State<LayOutScreen> {
       listener: (context , state){},
       builder: (context , state){
         final items = [
-          Image(image: AssetImage('assets/images/leave.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 0 ? Colors.white : Colors.black,),
-          Image(image: AssetImage('assets/images/qr.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 1 ? Colors.white : Colors.black,),
-          Image(image: AssetImage('assets/images/home.png') , width: 25.rSp, height: 25.rSp, color: AppCubit.get(context).currentIndex == 2 ? Colors.white : Colors.black,),
+          Image(image: const AssetImage('assets/images/leave.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 0 ? Colors.white : Colors.black,),
+          Image(image: const AssetImage('assets/images/qr.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 1 ? Colors.white : Colors.black,),
+          Image(image: const AssetImage('assets/images/home.png') , width: 25.rSp, height: 25.rSp, color: AppCubit.get(context).currentIndex == 2 ? Colors.white : Colors.black,),
           Image(image: AssetImage(AppCubit.get(context).currentIndex == 3 ? 'assets/images/Bell.png' : 'assets/images/bell2.png' ,) , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 3 ? Colors.white :  null),
-          Image(image: AssetImage('assets/images/profile.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 4 ? Colors.white : Colors.black,),
+          Image(image: const AssetImage('assets/images/profile.png') , width: 24.rSp, height: 24.rSp, color: AppCubit.get(context).currentIndex == 4 ? Colors.white : Colors.black,),
         ];
         var cubit = AppCubit.get(context);
         return Scaffold(
@@ -45,7 +47,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 100,
-                  offset: Offset(0,3),
+                  offset: const Offset(0,3),
                 )
               ]
             ),
@@ -58,7 +60,7 @@ class _LayOutScreenState extends State<LayOutScreen> {
                 cubit.changeBottomNav(index , context);
 
               },
-              animationDuration: Duration(
+              animationDuration: const Duration(
                 milliseconds: 300,
               ),
               items: items,
